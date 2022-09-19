@@ -1,10 +1,30 @@
-<<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html ng-app="ShoppingListApp">
   <head>
     <meta charset="utf-8">
-    <title>hello coursera</title>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Custom Service Through a Provider</title>
   </head>
+  <style>body { font-size: 1.3em; }</style>
   <body>
-    <h1>Hello Coursera</h1>
-  </body>
+    <h1>Custom Service Through a Provider</h1>
+    <div id="list" ng-controller='ShoppingListController as List'>
+      <h3>Shooping List</h3>
+      <input type="text" ng-model="List.itemName" placeholder="item name">
+      <input type="text" ng-model="list.itemQuantity" placeholder="quantity">
+      <button ng-click="list.addItem();">Add Item</button>
+      <ol>
+        <li ng-repeat="item in list.items">
+          {{ item.quantity }} of {{ item.name }}
+          <button ng-click="List.removeItem($index);">Remove Item</button>
+        </li>
+      </lo>
+      <div ng-if="list.errorMessage" class="error">Error: {{List.errorMessage}}</div>
+    </div>
+
+  </div>
+
+
+</body>
 </html>
